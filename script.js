@@ -1,10 +1,16 @@
 // ============================================
 // Apex Painting & Renevations LLC - Main JavaScript
 // ============================================
-
+document.addEventListener('DOMContentLoaded', () => {
 // Initialize Lucide Icons
-lucide.createIcons();
+if (typeof lucide !== 'undefined') {
+  lucide.createIcons();
+}
 
+
+const supabase = window.supabase.createClient(
+  'https://dklcrchnhlllcwpxjoxc.supabase.co',
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRrbGNyY2huaGxsbGN3cHhqb3hjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc4MTI2MTQsImV4cCI6MjA5MzM4ODYxNH0.PcEii2gprJqeG7cg6qbVQtK-cRPXA5pHAiUEziMxUMg')
 // ============================================
 // PROJECT DATA
 // ============================================
@@ -205,6 +211,8 @@ let lastScrollY = 0;
 
 function handleNavbarScroll() {
   const currentScrollY = window.scrollY;
+
+  if (!navbar) return;
 
   if (currentScrollY > 50) {
     navbar.classList.add('scrolled');
@@ -438,17 +446,6 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
-// Portfolio items on homepage
-document.querySelectorAll('.portfolio-item').forEach(item => {
-  item.addEventListener('click', () => {
-    const projectId = parseInt(item.dataset.project);
-    currentLightboxList = projects;
-    currentLightboxIndex = projectId;
-    updateLightboxContent();
-    lightbox.classList.add('active');
-    document.body.style.overflow = 'hidden';
-  });
-});
 
 // ============================================
 // CONTACT FORM
@@ -456,39 +453,55 @@ document.querySelectorAll('.portfolio-item').forEach(item => {
 const contactForm = document.getElementById('contact-form');
 const formSuccess = document.getElementById('form-success');
 
-if (contactForm) {
-  contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
+contactForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
 
-    // Simple validation
-    const name = contactForm.querySelector('#name').value.trim();
-    const email = contactForm.querySelector('#email').value.trim();
-    const service = contactForm.querySelector('#service').value;
-    const message = contactForm.querySelector('#message').value.trim();
+  const name = contactForm.querySelector('#name').value.trim();
+  const email = contactForm.querySelector('#email').value.trim();
+  const service = contactForm.querySelector('#service').value;
+  const message = contactForm.querySelector('#message').value.trim();
 
-    if (!name || !email || !service || !message) return;
+  if (!name || !email || !service || !message) return;
 
-    // Simulate form submission
-    const submitBtn = contactForm.querySelector('button[type="submit"]');
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Sending...';
+  const submitBtn = contactForm.querySelector('button[type="submit"]');
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Sending...';
+
+  try {
+    const { error } = await supabase.from('messages').insert([
+      {
+        name,
+        email,
+        service,
+        message,
+        status: 'new',
+        source: 'website'
+      }
+    ]);
+
+    if (error) throw error;
+
+    contactForm.classList.add('hidden');
+    formSuccess.classList.remove('hidden');
+
+    lucide.createIcons();
 
     setTimeout(() => {
-      contactForm.classList.add('hidden');
-      formSuccess.classList.remove('hidden');
-      lucide.createIcons();
+      contactForm.classList.remove('hidden');
+      formSuccess.classList.add('hidden');
+      contactForm.reset();
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send Message & Get Free Quote';
+    }, 5000);
 
-      // Reset after 5 seconds
-      setTimeout(() => {
-        contactForm.classList.remove('hidden');
-        formSuccess.classList.add('hidden');
-        contactForm.reset();
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Send Message & Get Free Quote';
-      }, 5000);
-    }, 1500);
-  });
-}
+  } catch (err) {
+    console.error(err);
+    alert('Message failed to send.');
+
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Send Message & Get Free Quote';
+  }
+});
 
 // ============================================
 // SMOOTH SCROLL FOR ANCHOR LINKS
@@ -515,7 +528,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // ============================================
 // INITIALIZATION
 // ============================================
-document.addEventListener('DOMContentLoaded', () => {
+
   // Initialize animations
   initFadeAnimations();
 
@@ -539,9 +552,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Re-init Lucide icons after any dynamic content change
 const portfolioGridObserver = new MutationObserver(() => {
-  lucide.createIcons();
+  if (typeof lucide !== 'undefined') {
+    lucide.createIcons();
+  }
 });
 
 if (portfolioGrid) {
   portfolioGridObserver.observe(portfolioGrid, { childList: true });
 }
+
