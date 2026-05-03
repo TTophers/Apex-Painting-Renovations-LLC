@@ -458,34 +458,34 @@ contactForm.addEventListener('submit', async (e) => {
 
   const name = contactForm.querySelector('#name').value.trim();
   const email = contactForm.querySelector('#email').value.trim();
+  const phone = contactForm.querySelector('#phone')?.value?.trim() || null;
   const service = contactForm.querySelector('#service').value;
   const message = contactForm.querySelector('#message').value.trim();
-
+  
   if (!name || !email || !service || !message) return;
-
+  
   const submitBtn = contactForm.querySelector('button[type="submit"]');
   submitBtn.disabled = true;
   submitBtn.textContent = 'Sending...';
-
+  
   try {
     const { error } = await supabase.from('messages').insert([
       {
         name,
         email,
+        phone,
         service,
         message,
-        status: 'new',
-        source: 'website'
+        read: false,
+        archived: false
       }
     ]);
-
+  
     if (error) throw error;
-
+  
     contactForm.classList.add('hidden');
     formSuccess.classList.remove('hidden');
-
-    lucide.createIcons();
-
+  
     setTimeout(() => {
       contactForm.classList.remove('hidden');
       formSuccess.classList.add('hidden');
@@ -493,11 +493,11 @@ contactForm.addEventListener('submit', async (e) => {
       submitBtn.disabled = false;
       submitBtn.textContent = 'Send Message & Get Free Quote';
     }, 5000);
-
+  
   } catch (err) {
     console.error(err);
     alert('Message failed to send.');
-
+  
     submitBtn.disabled = false;
     submitBtn.textContent = 'Send Message & Get Free Quote';
   }
