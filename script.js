@@ -11,6 +11,23 @@ if (typeof lucide !== 'undefined') {
 const supabase = window.supabase.createClient(
   'https://dklcrchnhlllcwpxjoxc.supabase.co',
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRrbGNyY2huaGxsbGN3cHhqb3hjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc4MTI2MTQsImV4cCI6MjA5MzM4ODYxNH0.PcEii2gprJqeG7cg6qbVQtK-cRPXA5pHAiUEziMxUMg')
+  async function logVisit() {
+    try {
+      await supabase
+        .from('visits')
+        .insert({
+          page: 'home',
+          user_agent: navigator.userAgent
+        });
+  
+      console.log('📡 visit logged');
+    } catch (err) {
+      console.error('Visit log failed:', err);
+    }
+  }
+  
+  logVisit();
+
 // ============================================
 // PROJECT DATA
 // ============================================
