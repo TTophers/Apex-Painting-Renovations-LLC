@@ -7,26 +7,10 @@ if (typeof lucide !== 'undefined') {
   lucide.createIcons();
 }
 
-
 const supabase = window.supabase.createClient(
   'https://dklcrchnhlllcwpxjoxc.supabase.co',
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRrbGNyY2huaGxsbGN3cHhqb3hjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc4MTI2MTQsImV4cCI6MjA5MzM4ODYxNH0.PcEii2gprJqeG7cg6qbVQtK-cRPXA5pHAiUEziMxUMg')
-  async function logVisit() {
-    try {
-      await supabase
-        .from('visits')
-        .insert({
-          page: 'home',
-          user_agent: navigator.userAgent
-        });
-  
-      console.log('📡 visit logged');
-    } catch (err) {
-      console.error('Visit log failed:', err);
-    }
-  }
-  
-  logVisit();
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRrbGNyY2huaGxsbGN3cHhqb3hjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc4MTI2MTQsImV4cCI6MjA5MzM4ODYxNH0.PcEii2gprJqeG7cg6qbVQtK-cRPXA5pHAiUEziMxUMg');
+
 
 // ============================================
 // PROJECT DATA
@@ -470,7 +454,8 @@ document.addEventListener('keydown', (e) => {
 const contactForm = document.getElementById('contact-form');
 const formSuccess = document.getElementById('form-success');
 
-contactForm.addEventListener('submit', async (e) => {
+if (contactForm) {
+  contactForm.addEventListener('submit', async (e) => {
   e.preventDefault();
 
   const name = contactForm.querySelector('#name').value.trim();
@@ -519,6 +504,7 @@ contactForm.addEventListener('submit', async (e) => {
     submitBtn.textContent = 'Send Message & Get Free Quote';
   }
 });
+}
 
 // ============================================
 // SMOOTH SCROLL FOR ANCHOR LINKS
@@ -565,7 +551,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       }
     }, 500);
   }
-});
+
 
 // Re-init Lucide icons after any dynamic content change
 const portfolioGridObserver = new MutationObserver(() => {
@@ -574,7 +560,11 @@ const portfolioGridObserver = new MutationObserver(() => {
   }
 });
 
+
 if (portfolioGrid) {
   portfolioGridObserver.observe(portfolioGrid, { childList: true });
 }
 
+console.log("GRID CHECK:", portfolioGrid);
+console.log("PROJECT COUNT:", projects?.length);
+});
