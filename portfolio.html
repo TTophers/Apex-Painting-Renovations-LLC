@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio | Apex Painting & Renevations LLC</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cream: '#FAF7F2',
+            warmwhite: '#F5F0E8',
+            sand: '#E8DFD0',
+            gold: '#C5985E',
+            golddark: '#A67C42',
+            goldlight: '#D4B07A',
+            charcoal: '#2C2824',
+            warmgray: '#6B6560',
+            lightgray: '#9E9890',
+            earth: '#8B7355',
+            terracotta: '#B8765A',
+          },
+          fontFamily: {
+            heading: ['Playfair Display', 'Georgia', 'serif'],
+            body: ['DM Sans', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="font-body bg-cream text-charcoal antialiased">
+
+  <!-- Navigation -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-white/80 backdrop-blur-lg shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 sm:h-20">
+        <a href="index.html" class="flex items-center gap-2 group">
+          <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-gold flex items-center justify-center transition-transform group-hover:scale-110">
+            <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M7 14c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm0-4c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1zm6 8c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm0-4c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1zm-3-8c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm0-4c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"/><path d="M20 2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 18H4V4h16v16z"/></svg>
+          </div>
+          <div>
+            <span class="font-heading text-lg sm:text-xl font-semibold text-charcoal">Apex Painting</span>
+            <span class="hidden sm:inline font-heading text-lg sm:text-xl font-light text-warmgray"> & Renevations LLC</span>
+          </div>
+        </a>
+        <div class="hidden md:flex items-center gap-8">
+          <a href="index.html" class="text-warmgray hover:text-gold transition-colors text-sm font-medium tracking-wide uppercase">Home</a>
+          <a href="portfolio.html" class="text-gold text-sm font-medium tracking-wide uppercase border-b-2 border-gold pb-1">Portfolio</a>
+          <a href="about.html" class="text-warmgray hover:text-gold transition-colors text-sm font-medium tracking-wide uppercase">About</a>
+          <a href="index.html#contact" class="bg-gold hover:bg-golddark text-white px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-gold/30 btn-shine">Get a Free Quote</a>
+        </div>
+        <button id="mobile-menu-btn" class="md:hidden flex flex-col gap-1.5 p-2 group" aria-label="Menu">
+          <span class="hamburger-line block w-6 h-0.5 bg-charcoal transition-all duration-300 origin-center"></span>
+          <span class="hamburger-line block w-6 h-0.5 bg-charcoal transition-all duration-300 origin-center"></span>
+          <span class="hamburger-line block w-4 h-0.5 bg-charcoal transition-all duration-300 origin-center group-hover:w-6"></span>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="md:hidden fixed inset-0 bg-cream/98 backdrop-blur-md z-40 flex flex-col items-center justify-center gap-8 opacity-0 pointer-events-none transition-all duration-500">
+      <a href="index.html" class="text-2xl font-heading text-charcoal hover:text-gold transition-colors">Home</a>
+      <a href="portfolio.html" class="text-2xl font-heading text-gold transition-colors">Portfolio</a>
+      <a href="about.html" class="text-2xl font-heading text-charcoal hover:text-gold transition-colors">About</a>
+      <a href="index.html#contact" class="text-2xl font-heading text-charcoal hover:text-gold transition-colors">Contact</a>
+      <a href="index.html#contact" class="mt-4 bg-gold hover:bg-golddark text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 btn-shine">Get a Free Quote</a>
+    </div>
+  </nav>
+
+  <!-- Hero Banner -->
+  <section class="pt-28 sm:pt-36 pb-16 sm:pb-24 bg-gradient-to-br from-cream via-warmwhite to-sand relative overflow-hidden">
+    <div class="absolute top-20 left-0 w-80 h-80 bg-gold/10 rounded-full blur-3xl"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto">
+        <div class="inline-flex items-center gap-2 bg-gold/10 text-gold px-4 py-2 rounded-full text-sm font-medium mb-6 fade-up">
+          <i data-lucide="image" class="w-4 h-4"></i>
+          Our Work
+        </div>
+        <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 fade-up">Our Portfolio of <span class="text-gold italic">Transformations</span></h1>
+        <p class="text-warmgray text-lg sm:text-xl leading-relaxed fade-up">Every project tells a story. See how we've transformed homes and businesses across the metro area.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filter Tabs -->
+  <section class="py-4 bg-white border-b border-charcoal/5 sticky top-16 sm:top-20 z-30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex gap-2 sm:gap-3 overflow-x-auto scrollbar-hide py-2" id="filter-tabs">
+        <button class="filter-tab active whitespace-nowrap px-4 sm:px-5 py-2 rounded-full text-sm font-medium transition-all duration-300" data-filter="all">All Projects</button>
+        <button class="filter-tab whitespace-nowrap px-4 sm:px-5 py-2 rounded-full text-sm font-medium transition-all duration-300" data-filter="residential-interior">Interior</button>
+        <button class="filter-tab whitespace-nowrap px-4 sm:px-5 py-2 rounded-full text-sm font-medium transition-all duration-300" data-filter="residential-exterior">Exterior</button>
+        <button class="filter-tab whitespace-nowrap px-4 sm:px-5 py-2 rounded-full text-sm font-medium transition-all duration-300" data-filter="commercial">Commercial</button>
+        <button class="filter-tab whitespace-nowrap px-4 sm:px-5 py-2 rounded-full text-sm font-medium transition-all duration-300" data-filter="cabinet">Cabinets</button>
+        <button class="filter-tab whitespace-nowrap px-4 sm:px-5 py-2 rounded-full text-sm font-medium transition-all duration-300" data-filter="consultation">Consultation</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Grid -->
+  <section class="py-12 sm:py-16 bg-cream">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6" id="portfolio-grid">
+        <!-- Projects will be dynamically inserted -->
+      </div>
+
+      <!-- Empty State -->
+      <div id="empty-state" class="hidden text-center py-16">
+        <i data-lucide="search-x" class="w-16 h-16 text-lightgray mx-auto mb-4"></i>
+        <h3 class="font-heading text-2xl font-semibold text-warmgray mb-2">No Projects Found</h3>
+        <p class="text-lightgray">Try selecting a different category.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 sm:py-20 bg-gradient-to-r from-golddark to-gold relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-0 left-0 w-64 h-64 bg-white rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+      <div class="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full translate-x-1/3 translate-y-1/3"></div>
+    </div>
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 fade-up">Love What You See?</h2>
+      <p class="text-white/80 text-lg mb-8 fade-up">Let's create your own transformation story. Get a free quote today.</p>
+      <a href="index.html#contact" class="inline-block bg-white text-golddark hover:bg-cream px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:shadow-xl btn-shine fade-up">
+        Start Your Project →
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-charcoal text-white/70 py-12 sm:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
+        <div class="sm:col-span-2 lg:col-span-1">
+          <div class="flex items-center gap-2 mb-4">
+            <div class="w-9 h-9 rounded-full bg-gold flex items-center justify-center">
+              <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M7 14c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm0-4c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1zm6 8c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm0-4c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1zm-3-8c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm0-4c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"/><path d="M20 2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 18H4V4h16v16z"/></svg>
+            </div>
+            <span class="font-heading text-lg font-semibold text-white">Apex Painting & Renevations LLC</span>
+          </div>
+          <p class="text-sm leading-relaxed">Premium residential & commercial painting services. Transforming spaces with precision and care since 2008.</p>
+        </div>
+        <div>
+          <h4 class="font-semibold text-white mb-4 text-sm uppercase tracking-wider">Services</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="index.html#services" class="hover:text-gold transition-colors">Interior Painting</a></li>
+            <li><a href="index.html#services" class="hover:text-gold transition-colors">Exterior Painting</a></li>
+            <li><a href="index.html#services" class="hover:text-gold transition-colors">Commercial Painting</a></li>
+            <li><a href="index.html#services" class="hover:text-gold transition-colors">Cabinet Refinishing</a></li>
+            <li><a href="index.html#services" class="hover:text-gold transition-colors">Color Consultation</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold text-white mb-4 text-sm uppercase tracking-wider">Company</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="about.html" class="hover:text-gold transition-colors">About Us</a></li>
+            <li><a href="portfolio.html" class="hover:text-gold transition-colors">Portfolio</a></li>
+            <li><a href="index.html#testimonials" class="hover:text-gold transition-colors">Testimonials</a></li>
+            <li><a href="index.html#contact" class="hover:text-gold transition-colors">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold text-white mb-4 text-sm uppercase tracking-wider">Contact</h4>
+          <ul class="space-y-2 text-sm">
+            <li>(555) 123-4567</li>
+            <li>hello@apexpaints.com</li>
+            <li>123 Main Street, Suite 200<br>Oak Park, CO 80202</li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-white/10 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs">
+        <p>&copy; 2024 Apex Painting & Renevations LLC. All rights reserved.</p>
+        <div class="flex gap-4">
+          <a href="#" class="hover:text-gold transition-colors">Privacy Policy</a>
+          <a href="#" class="hover:text-gold transition-colors">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox" class="fixed inset-0 z-[100] bg-charcoal/95 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300">
+    <button id="lightbox-close" class="absolute top-4 right-4 sm:top-6 sm:right-6 w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center text-white transition-colors z-10">
+      <i data-lucide="x" class="w-6 h-6"></i>
+    </button>
+    <button id="lightbox-prev" class="absolute left-4 sm:left-6 w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center text-white transition-colors z-10">
+      <i data-lucide="chevron-left" class="w-6 h-6"></i>
+    </button>
+    <button id="lightbox-next" class="absolute right-4 sm:right-6 w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center text-white transition-colors z-10">
+      <i data-lucide="chevron-right" class="w-6 h-6"></i>
+    </button>
+    <div id="lightbox-content" class="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
+      <div class="grid md:grid-cols-2">
+        <div class="relative">
+          <img id="lightbox-image" src="" alt="" class="w-full h-64 sm:h-80 md:h-full object-cover md:rounded-l-2xl">
+          <div id="lightbox-badge" class="absolute top-4 left-4 bg-gold text-white text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider"></div>
+        </div>
+        <div class="p-6 sm:p-8">
+          <div id="lightbox-category" class="text-gold text-xs uppercase tracking-wider font-semibold mb-2"></div>
+          <h3 id="lightbox-title" class="font-heading text-2xl font-bold mb-3"></h3>
+          <p id="lightbox-description" class="text-warmgray leading-relaxed mb-6"></p>
+
+          <!-- Before/After Section -->
+          <div id="lightbox-beforeafter" class="mb-6 hidden">
+            <h4 class="font-semibold text-sm uppercase tracking-wider text-charcoal mb-3">Before & After</h4>
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <img id="lightbox-before" src="" alt="Before" class="w-full h-28 sm:h-32 object-cover rounded-lg">
+                <span class="text-xs text-lightgray mt-1 block">Before</span>
+              </div>
+              <div>
+                <img id="lightbox-after" src="" alt="After" class="w-full h-28 sm:h-32 object-cover rounded-lg">
+                <span class="text-xs text-lightgray mt-1 block">After</span>
+              </div>
+            </div>
+          </div>
+
+          <div id="lightbox-details" class="space-y-3 border-t border-charcoal/10 pt-6">
+            <div class="flex items-center gap-3">
+              <i data-lucide="map-pin" class="w-4 h-4 text-gold"></i>
+              <span id="lightbox-location" class="text-sm"></span>
+            </div>
+            <div class="flex items-center gap-3">
+              <i data-lucide="calendar" class="w-4 h-4 text-gold"></i>
+              <span id="lightbox-date" class="text-sm"></span>
+            </div>
+            <div class="flex items-center gap-3">
+              <i data-lucide="clock" class="w-4 h-4 text-gold"></i>
+              <span id="lightbox-duration" class="text-sm"></span>
+            </div>
+          </div>
+          <a href="index.html#contact" id="lightbox-cta" class="mt-6 w-full bg-gold hover:bg-golddark text-white py-3 rounded-xl font-semibold transition-all duration-300 text-center block btn-shine">
+            Start a Similar Project
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="script.js"></script>
+</body>
+</html>
