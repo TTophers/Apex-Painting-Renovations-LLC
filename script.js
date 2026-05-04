@@ -176,11 +176,20 @@ function openMobileMenu() {
   document.body.dataset.scrollY = scrollY;
 
   mobileMenu.classList.add('active');
+  mobileMenu.style.background = 'rgba(0,0,0,0.45)';
   // force menu to reset scroll + layout position
   mobileMenu.scrollTop = 0;
   mobileMenu.style.top = '0';
   mobileMenu.style.height = '100vh';
+  mobileMenu.style.backdropFilter = 'blur(6px)';
   mobileMenuBtn.classList.add('hamburger-active');
+  // FORCE visibility styles on links (strong override)
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.style.color = '#ffffff';
+    link.style.textShadow = '0 8px 25px rgba(0,0,0,0.9)';
+    link.style.fontWeight = '600';
+    link.style.letterSpacing = '0.5px';
+  });
 
   // simpler scroll lock (less buggy on mobile)
   document.documentElement.style.overflow = 'hidden';
@@ -191,7 +200,16 @@ function closeMobileMenu() {
   if (!mobileMenu || !mobileMenuBtn) return;
 
   mobileMenu.classList.remove('active');
+  mobileMenu.style.background = '';
+  mobileMenu.style.backdropFilter = '';
   mobileMenuBtn.classList.remove('hamburger-active');
+  // remove glow when closing
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.style.color = '';
+    link.style.textShadow = '';
+    link.style.fontWeight = '';
+    link.style.letterSpacing = '';
+  });
 
   // restore scroll position
   const scrollY = document.body.dataset.scrollY || '0';
