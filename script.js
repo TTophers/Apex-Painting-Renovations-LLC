@@ -164,9 +164,6 @@ const projects = [
 // ============================================
 
 
-// MOBILE MENU
-// ============================================
-
 const mobileMenuBtn = document.getElementById('mobile-menu-btn');
 const mobileMenu = document.getElementById('mobile-menu');
 const mobileMenuClose = document.getElementById('mobile-menu-close');
@@ -179,14 +176,15 @@ function openMobileMenu() {
   document.body.dataset.scrollY = scrollY;
 
   mobileMenu.classList.add('active');
+  // force menu to reset scroll + layout position
+  mobileMenu.scrollTop = 0;
+  mobileMenu.style.top = '0';
+  mobileMenu.style.height = '100vh';
   mobileMenuBtn.classList.add('hamburger-active');
 
-  // lock scroll WITHOUT layout shift
-  document.body.style.position = 'fixed';
-  document.body.style.top = `-${scrollY}px`;
-  document.body.style.left = '0';
-  document.body.style.right = '0';
-  document.body.style.width = '100%';
+  // simpler scroll lock (less buggy on mobile)
+  document.documentElement.style.overflow = 'hidden';
+  document.body.style.overflow = 'hidden';
 }
 
 function closeMobileMenu() {
@@ -198,13 +196,8 @@ function closeMobileMenu() {
   // restore scroll position
   const scrollY = document.body.dataset.scrollY || '0';
 
-  document.body.style.position = '';
-  document.body.style.top = '';
-  document.body.style.left = '';
-  document.body.style.right = '';
-  document.body.style.width = '';
-
-  window.scrollTo(0, parseInt(scrollY, 10));
+  document.documentElement.style.overflow = '';
+  document.body.style.overflow = '';
 }
 
 if (mobileMenuBtn && mobileMenu) {
