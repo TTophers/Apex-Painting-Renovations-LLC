@@ -64,13 +64,19 @@
         </button>
       </div>
     </div>
+    <!-- Mobile Menu -->
     <div id="mobile-menu" class="md:hidden fixed inset-0 bg-cream/98 backdrop-blur-md z-40 flex flex-col items-center justify-center gap-8 opacity-0 pointer-events-none transition-all duration-500">
-      <a href="index.html" class="text-2xl font-heading text-charcoal hover:text-gold transition-colors">Home</a>
-      <a href="portfolio.html" class="text-2xl font-heading text-gold transition-colors">Portfolio</a>
-      <a href="about.html" class="text-2xl font-heading text-charcoal hover:text-gold transition-colors">About</a>
-      <a href="index.html#contact" class="text-2xl font-heading text-charcoal hover:text-gold transition-colors">Contact</a>
-      <a href="index.html#contact" class="mt-4 bg-gold hover:bg-golddark text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 btn-shine">Get a Free Quote</a>
+      <!-- Close Mobile Menu Button -->
+      <button id="mobile-menu-close" class="absolute top-6 right-6 w-10 h-10 bg-white/60 hover:bg-white/80 rounded-full flex items-center justify-center transition-colors" aria-label="Close Menu">
+        <i data-lucide="x" class="w-6 h-6 text-charcoal"></i>
+      </button>
+      <a href="#services" class="mobile-nav-link text-2xl font-heading text-charcoal hover:text-gold transition-colors">Services</a>
+      <a href="portfolio.html" class="mobile-nav-link text-2xl font-heading text-charcoal hover:text-gold transition-colors">Portfolio</a>
+      <a href="about.html" class="mobile-nav-link text-2xl font-heading text-charcoal hover:text-gold transition-colors">About</a>
+      <a href="#contact" class="mobile-nav-link text-2xl font-heading text-charcoal hover:text-gold transition-colors">Contact</a>
+      <a href="#contact" class="mt-4 bg-gold hover:bg-golddark text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 btn-shine">Get a Free Quote</a>
     </div>
+  </nav>
   </nav>
 
   <!-- Hero Banner -->
@@ -206,8 +212,12 @@
 
           <!-- Before/After Section -->
           <div id="lightbox-beforeafter" class="mb-6 hidden">
-            <h4 class="font-semibold text-sm uppercase tracking-wider text-charcoal mb-3">Before & After</h4>
+            <div class="flex items-center justify-between mb-3">
+              <h4 class="font-semibold text-sm uppercase tracking-wider text-charcoal">Before & After</h4>
+              <span class="text-xs text-lightgray">Click images to enlarge</span>
+            </div>
             <div class="grid grid-cols-2 gap-3">
+            
               <div>
                 <img id="lightbox-before" src="" alt="Before" class="w-full h-28 sm:h-32 object-cover rounded-lg">
                 <span class="text-xs text-lightgray mt-1 block">Before</span>

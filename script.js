@@ -18,191 +18,202 @@ const supabase = window.supabase.createClient(
 const projects = [
   {
     id: 0,
-    title: 'Modern Living Room Refresh',
+    title: 'Cabnit Refresh',
     category: 'residential-interior',
     categoryLabel: 'Residential Interior',
-    description: 'A complete living room transformation using warm neutral tones. We painted the walls, trim, and ceiling, creating a cohesive, modern feel that perfectly complements the homeowner\'s contemporary furniture.',
-    image: 'http://static.photos/minimal/640x360/10',
-    location: 'Oak Park, CO',
+    description: 'A full cabinet refinishing project transforming outdated natural wood cabinets into a clean, modern white finish. Surfaces were carefully prepped, sanded, and cleaned, with all hinges, hardware, and surrounding areas fully masked and protected to ensure a flawless, professional result. We applied a premium-grade cabinet enamel designed for high durability, smooth leveling, and long-lasting resistance to chipping, moisture, and daily wear.',
+    image: '/pics/19.jpg',
+    location: 'Denevr, CO',
     date: 'March 2024',
-    duration: '3 days',
+    duration: '3 hours',
     hasBeforeAfter: true,
-    beforeImage: 'http://static.photos/vintage/320x240/10',
-    afterImage: 'http://static.photos/minimal/320x240/10'
+    beforeImage: '/pics/20.jpg',
+    afterImage: '/pics/19.jpg'
   },
   {
     id: 1,
     title: 'Corporate Office Renovation',
-    category: 'commercial',
-    categoryLabel: 'Commercial',
-    description: 'Full interior repaint of a 5,000 sq ft corporate office. We worked nights and weekends to minimize business disruption, delivering a fresh, professional look that employees and clients love.',
-    image: 'http://static.photos/education/640x360/25',
-    location: 'Downtown Chicago, CO',
+    category: 'cabnits',
+    categoryLabel: 'Kitchen Transformation',
+    description: 'A complete kitchen transformation featuring updated appliances, new flooring, and a fully refreshed aesthetic. We installed a modern stove and microwave, replaced countertops with a clean, durable surface, and refinished all cabinets with a premium white finish for a bright, cohesive look. New flooring ties the space together, creating a seamless, high-end feel throughout. The result is a fully modernized kitchen that feels brand new, both functional and visually elevated.',
+    image: '/pics/17.jpg',
+    location: 'Littleton, CO',
     date: 'January 2024',
     duration: '7 days',
     hasBeforeAfter: true,
-    beforeImage: 'http://static.photos/vintage/320x240/25',
-    afterImage: 'http://static.photos/education/320x240/25'
+    beforeImage: '/pics/18.jpg',
+    afterImage: '/pics/17.jpg'
   },
   {
     id: 2,
     title: 'Kitchen Cabinet Makeover',
     category: 'cabinet',
     categoryLabel: 'Cabinet Refinishing',
-    description: 'Transformed outdated oak cabinets into a sleek, modern espresso finish. Saved the homeowners 60% compared to replacement while achieving a brand-new kitchen look.',
-    image: 'http://static.photos/white/640x360/55',
-    location: 'River Forest, CO',
-    date: 'February 2024',
-    duration: '4 days',
+    description: 'Transformed outdated oak cabinets into a sleek, modern cream finish. Saved the homeowners 60% compared to replacement while achieving a brand new kitchen look.',
+    image: '/pics/15.jpg',
+    location: 'Lone Tree, CO',
+    date: 'February 2026',
+    duration: '1 day',
     hasBeforeAfter: true,
-    beforeImage: 'http://static.photos/vintage/320x240/55',
-    afterImage: 'http://static.photos/white/320x240/55'
+    beforeImage: '/pics/16.jpg',
+    afterImage: '/pics/15.jpg'
   },
   {
     id: 3,
-    title: 'Complete Exterior Makeover',
-    category: 'residential-exterior',
-    categoryLabel: 'Residential Exterior',
-    description: 'A dramatic exterior transformation that boosted curb appeal and property value. We used premium Sherwin-Williams Duration paint for maximum durability against Midwest weather.',
-    image: 'http://static.photos/blue/640x360/80',
-    location: 'Elmhurst, CO',
-    date: 'September 2023',
+    title: 'Bathroom Remodle',
+    category: 'residential-interior',
+    categoryLabel: 'Residential Interior',
+    description: 'A full bathroom makeover featuring a complete upgrade of all key finishes. We installed new shower wall tile for a clean, modern look, paired with a refreshed sink and countertop for improved functionality and style. A new mirror and updated flooring tie the space together, creating a bright, cohesive, and spa-like feel. The result is a fully modernized bathroom that feels fresh, polished, and built to last.',
+    image: '/pics/13.jpg',
+    location: 'Littleton, CO',
+    date: 'September 2025',
     duration: '5 days',
     hasBeforeAfter: true,
-    beforeImage: 'http://static.photos/vintage/320x240/80',
-    afterImage: 'http://static.photos/blue/320x240/80'
+    beforeImage: '/pics/14.jpg',
+    afterImage: '/pics/13.jpg'
   },
   {
     id: 4,
-    title: 'Upscale Restaurant Refresh',
-    category: 'commercial',
-    categoryLabel: 'Commercial',
-    description: 'Revitalized a popular local restaurant with rich, warm tones that enhance the dining atmosphere. We completed the work during off-hours to keep the restaurant open for business.',
-    image: 'http://static.photos/restaurant/640x360/33',
-    location: 'Naperville, CO',
+    title: 'Sideing & Window Replacement',
+    category: 'residential-exterior',
+    categoryLabel: 'residential Exterior',
+    description: 'A full exterior home refresh featuring professional painting of all siding and window trim to restore curb appeal and protect against the elements. Surfaces were properly prepped, cleaned, and repaired as needed before applying premium exterior-grade paint designed for long-lasting durability, weather resistance, and a smooth, even finish. The updated color scheme enhances the home’s architectural details, giving it a clean, modern, and well-maintained appearance that significantly boosts overall curb appeal and property value.',
+    image: '/pics/11.jpg',
+    location: 'Highlands Ranch, CO',
     date: 'November 2023',
-    duration: '4 nights',
-    hasBeforeAfter: false
+    duration: '5 days',
+    hasBeforeAfter: true,
+    beforeImage: '/pics/12.jpg',
+    afterImage: '/pics/11.jpg'
   },
   {
     id: 5,
-    title: 'Luxury Master Bedroom',
-    category: 'residential-interior',
-    categoryLabel: 'Residential Interior',
-    description: 'Created a serene retreat with sophisticated gray-blue walls and crisp white trim. The color consultation helped the homeowners find the perfect shade for their peaceful getaway.',
-    image: 'http://static.photos/estate/640x360/15',
-    location: 'Hinsdale, CO',
+    title: 'Luxury House Refinish',
+    category: 'residential-exterior',
+    categoryLabel: 'Residential Exterior',
+    description: 'A bold exterior transformation featuring a rich, deep purple finish that completely redefines the home’s curb appeal. The project included full surface preparation, repairs, and meticulous masking before applying premium exterior grade paint designed for maximum durability and weather resistance. The result is a striking, modern statement home with a smooth, even finish that stands out while still feeling intentional, clean, and professionally executed.',
+    image: '/pics/9.jpg',
+    location: 'Highlands Ranch, CO',
     date: 'April 2024',
-    duration: '2 days',
+    duration: '3 days',
     hasBeforeAfter: true,
-    beforeImage: 'http://static.photos/vintage/320x240/15',
-    afterImage: 'http://static.photos/estate/320x240/15'
+    beforeImage: '/pics/10.jpg',
+    afterImage: '/pics/9.jpg'
   },
   {
     id: 6,
-    title: 'Victorian Home Restoration',
+    title: 'Resedential Fence Refinish',
     category: 'residential-exterior',
     categoryLabel: 'Residential Exterior',
-    description: 'Restored the original grandeur of this 1890s Victorian with a historically-accurate color scheme. We repaired damaged wood, prepped thoroughly, and applied three coats for lasting beauty.',
-    image: 'http://static.photos/vintage/640x360/60',
-    location: 'Oak Park, CO',
-    date: 'August 2023',
-    duration: '10 days',
+    description: 'A professional fence restoration and refinishing project designed to restore both appearance and protection. The surface was thoroughly cleaned, prepped, and treated before applying a high quality exterior stain/paint system formulated for maximum weather resistance, UV protection, and long-term durability. The finish enhances the natural look of the fence while sealing and protecting the wood against moisture, cracking, and seasonal wear. The result is a clean, uniform appearance that improves curb appeal and extends the life of the structure.',
+    image: '/pics/7.jpg',
+    location: 'parker, CO',
+    date: 'August 2026',
+    duration: '1 day',
     hasBeforeAfter: true,
-    beforeImage: 'http://static.photos/vintage/320x240/60',
-    afterImage: 'http://static.photos/aerial/320x240/60'
+    beforeImage: '/pics/8.jpg',
+    afterImage: 'pics/7.jpg'
   },
   {
     id: 7,
-    title: 'Retail Store Grand Opening',
-    category: 'commercial',
-    categoryLabel: 'Commercial',
-    description: 'Brand-new retail space painted on a tight timeline for grand opening. We coordinated with contractors and delivered flawless results in just 3 days.',
-    image: 'http://static.photos/retail/640x360/40',
-    location: 'Schaumburg, CO',
+    title: 'Shed Revival',
+    category: 'residential-exterior',
+    categoryLabel: 'Residential Exterior',
+    description: 'A full shed and garage exterior restoration project bringing a worn down structure back to life. The existing paint was peeling and weather damaged, so surfaces were thoroughly scraped, sanded, and prepped to ensure proper adhesion and a long lasting finish. We repainted the entire shed with a durable exterior grade coating and carefully restored the garage door, correcting peeling and uneven wear for a smooth, uniform appearance. The result is a fully refreshed exterior that not only looks clean and modern, but is also properly sealed and protected against future weather damage.',
+    image: '/pics/5.jpg',
+    location: 'Dakota Ridge, CO',
     date: 'June 2023',
-    duration: '3 days',
-    hasBeforeAfter: false
+    duration: '8 days',
+    hasBeforeAfter: true,
+    beforeImage: '/pics/6.jpg',
+    afterImage: '/pics/5.jpg'
   },
   {
     id: 8,
-    title: 'Whole Home Color Makeover',
+    title: 'Whole Home Color Makeover & Finish',
     category: 'consultation',
-    categoryLabel: 'Color Consultation + Interior',
+    categoryLabel: 'Color Consultation + Exterior',
     description: 'Our color consultant worked with the homeowners to create a cohesive palette flowing through every room. Then our team executed the vision flawlessly across 3,200 sq ft.',
-    image: 'http://static.photos/indoor/640x360/28',
-    location: 'La Grange, CO',
+    image: '/pics/3.jpg',
+    location: 'Denevr, CO',
     date: 'May 2024',
     duration: '5 days',
     hasBeforeAfter: true,
-    beforeImage: 'http://static.photos/vintage/320x240/28',
-    afterImage: 'http://static.photos/indoor/320x240/28'
+    beforeImage: '/pics/4.jpg',
+    afterImage: '/pics/3.jpg'
   },
   {
     id: 9,
-    title: 'Bathroom Cabinet Refinishing',
-    category: 'cabinet',
-    categoryLabel: 'Cabinet Refinishing',
-    description: 'Updated three bathrooms by refinishing vanities from dated honey oak to a crisp, modern white. The result feels like a complete bathroom remodel at a fraction of the cost.',
-    image: 'http://static.photos/wellness/640x360/50',
+    title: 'Residential Room Painted & Finished',
+    category: 'residential-interior',
+    categoryLabel: 'Residential Interior',
+    description: 'A full interior repaint transforming the room into a clean, bright, modern space with a fresh white finish throughout. The project included walls, trim, and ceiling, carefully prepped and coated for a smooth, even application with crisp lines and no imperfections. The result is a noticeably lighter, more open feel that enhances natural light and gives the room a fresh, updated appearance that feels clean, simple, and brand new.',
+    image: '/pics/1.jpg',
     location: 'Burr Ridge, CO',
     date: 'July 2023',
     duration: '2 days',
     hasBeforeAfter: true,
-    beforeImage: 'http://static.photos/vintage/320x240/50',
-    afterImage: 'http://static.photos/wellness/320x240/50'
+    beforeImage: '/pics/2.jpg',
+    afterImage: '/pics/1.jpg'
   },
-  {
-    id: 10,
-    title: 'Modern Condo Transformation',
-    category: 'residential-interior',
-    categoryLabel: 'Residential Interior',
-    description: 'Converted a builder-grade condo into a personalized haven with accent walls, ceiling treatments, and custom color blocking. The owner couldn\'t believe the difference.',
-    image: 'http://static.photos/abstract/640x360/70',
-    location: 'West Loop, Chicago, CO',
-    date: 'October 2023',
-    duration: '4 days',
-    hasBeforeAfter: true,
-    beforeImage: 'http://static.photos/vintage/320x240/70',
-    afterImage: 'http://static.photos/abstract/320x240/70'
-  },
-  {
-    id: 11,
-    title: 'Office Building Exterior',
-    category: 'commercial',
-    categoryLabel: 'Commercial Exterior',
-    description: 'Repainted the exterior of a three-story office building, including trim, accent walls, and entrance way. Enhanced the building\'s professional presence on a busy street.',
-    image: 'http://static.photos/industry/640x360/45',
-    location: 'Addison, CO',
-    date: 'July 2024',
-    duration: '8 days',
-    hasBeforeAfter: false
-  }
+  
 ];
 
 // ============================================
 // MOBILE MENU
 // ============================================
+
+
+// MOBILE MENU
+// ============================================
+
 const mobileMenuBtn = document.getElementById('mobile-menu-btn');
 const mobileMenu = document.getElementById('mobile-menu');
+const mobileMenuClose = document.getElementById('mobile-menu-close');
+
+function closeMobileMenu() {
+  if (!mobileMenu || !mobileMenuBtn) return;
+
+  mobileMenu.classList.remove('active');
+  mobileMenuBtn.classList.remove('hamburger-active');
+  document.body.style.overflow = '';
+}
+
+function openMobileMenu() {
+  if (!mobileMenu || !mobileMenuBtn) return;
+
+  mobileMenu.classList.add('active');
+  mobileMenuBtn.classList.add('hamburger-active');
+  document.body.style.overflow = 'hidden';
+}
 
 if (mobileMenuBtn && mobileMenu) {
   mobileMenuBtn.addEventListener('click', () => {
-    const isActive = mobileMenu.classList.contains('active');
-    mobileMenu.classList.toggle('active');
-    mobileMenuBtn.classList.toggle('hamburger-active');
-    document.body.style.overflow = isActive ? '' : 'hidden';
+    const isOpen = mobileMenu.classList.contains('active');
+
+    if (isOpen) {
+      closeMobileMenu();
+    } else {
+      openMobileMenu();
+    }
   });
 
-  // Close mobile menu on link click
+  // close on link click
   mobileMenu.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      mobileMenu.classList.remove('active');
-      mobileMenuBtn.classList.remove('hamburger-active');
-      document.body.style.overflow = '';
-    });
+    link.addEventListener('click', closeMobileMenu);
   });
 }
+
+// X button support
+if (mobileMenuClose) {
+  mobileMenuClose.addEventListener('click', closeMobileMenu);
+}
+
+// safety resets
+window.addEventListener('pageshow', closeMobileMenu);
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 768) closeMobileMenu();
+});
 
 // ============================================
 // NAVBAR SCROLL BEHAVIOR
@@ -380,8 +391,19 @@ function updateLightboxContent() {
   const beforeAfterSection = document.getElementById('lightbox-beforeafter');
   if (project.hasBeforeAfter) {
     beforeAfterSection.classList.remove('hidden');
-    document.getElementById('lightbox-before').src = project.beforeImage;
-    document.getElementById('lightbox-after').src = project.afterImage;
+
+    const beforeImg = document.getElementById('lightbox-before');
+    const afterImg = document.getElementById('lightbox-after');
+
+    beforeImg.src = project.beforeImage;
+    afterImg.src = project.afterImage;
+
+    // make clickable zoom
+    beforeImg.style.cursor = 'zoom-in';
+    afterImg.style.cursor = 'zoom-in';
+
+    beforeImg.onclick = () => openImageViewer(project.beforeImage);
+    afterImg.onclick = () => openImageViewer(project.afterImage);
   } else {
     beforeAfterSection.classList.add('hidden');
   }
@@ -448,6 +470,46 @@ document.addEventListener('keydown', (e) => {
 });
 
 
+// ============================================
+function openImageViewer(src) {
+  // create overlay if it doesn't exist
+  let viewer = document.getElementById('image-viewer-overlay');
+
+  if (!viewer) {
+    viewer = document.createElement('div');
+    viewer.id = 'image-viewer-overlay';
+    viewer.style.position = 'fixed';
+    viewer.style.top = '0';
+    viewer.style.left = '0';
+    viewer.style.width = '100%';
+    viewer.style.height = '100%';
+    viewer.style.background = 'rgba(0,0,0,0.9)';
+    viewer.style.display = 'flex';
+    viewer.style.alignItems = 'center';
+    viewer.style.justifyContent = 'center';
+    viewer.style.zIndex = '9999';
+    viewer.style.cursor = 'zoom-out';
+
+    const img = document.createElement('img');
+    img.id = 'image-viewer-img';
+    img.style.maxWidth = '90%';
+    img.style.maxHeight = '90%';
+    img.style.borderRadius = '12px';
+    img.style.boxShadow = '0 10px 40px rgba(0,0,0,0.5)';
+
+    viewer.appendChild(img);
+
+    viewer.addEventListener('click', () => {
+      viewer.style.display = 'none';
+    });
+
+    document.body.appendChild(viewer);
+  }
+
+  const img = document.getElementById('image-viewer-img');
+  img.src = src;
+  viewer.style.display = 'flex';
+}
 // ============================================
 // CONTACT FORM
 // ============================================
