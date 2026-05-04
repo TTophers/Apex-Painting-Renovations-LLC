@@ -171,20 +171,38 @@ const mobileMenuBtn = document.getElementById('mobile-menu-btn');
 const mobileMenu = document.getElementById('mobile-menu');
 const mobileMenuClose = document.getElementById('mobile-menu-close');
 
+function openMobileMenu() {
+  if (!mobileMenu || !mobileMenuBtn) return;
+
+  // store scroll position
+  const scrollY = window.scrollY;
+  document.body.dataset.scrollY = scrollY;
+
+  // lock body without jump
+  document.body.style.position = 'fixed';
+  document.body.style.top = `-${scrollY}px`;
+  document.body.style.left = '0';
+  document.body.style.right = '0';
+
+  mobileMenu.classList.add('active');
+  mobileMenuBtn.classList.add('hamburger-active');
+}
+
 function closeMobileMenu() {
   if (!mobileMenu || !mobileMenuBtn) return;
 
   mobileMenu.classList.remove('active');
   mobileMenuBtn.classList.remove('hamburger-active');
-  document.body.style.overflow = '';
-}
 
-function openMobileMenu() {
-  if (!mobileMenu || !mobileMenuBtn) return;
+  // restore scroll position
+  const scrollY = document.body.dataset.scrollY || '0';
 
-  mobileMenu.classList.add('active');
-  mobileMenuBtn.classList.add('hamburger-active');
-  document.body.style.overflow = 'hidden';
+  document.body.style.position = '';
+  document.body.style.top = '';
+  document.body.style.left = '';
+  document.body.style.right = '';
+
+  window.scrollTo(0, parseInt(scrollY) * -1);
 }
 
 if (mobileMenuBtn && mobileMenu) {
