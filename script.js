@@ -178,14 +178,15 @@ function openMobileMenu() {
   const scrollY = window.scrollY;
   document.body.dataset.scrollY = scrollY;
 
-  // lock body without jump
+  mobileMenu.classList.add('active');
+  mobileMenuBtn.classList.add('hamburger-active');
+
+  // lock scroll WITHOUT layout shift
   document.body.style.position = 'fixed';
   document.body.style.top = `-${scrollY}px`;
   document.body.style.left = '0';
   document.body.style.right = '0';
-
-  mobileMenu.classList.add('active');
-  mobileMenuBtn.classList.add('hamburger-active');
+  document.body.style.width = '100%';
 }
 
 function closeMobileMenu() {
@@ -201,8 +202,9 @@ function closeMobileMenu() {
   document.body.style.top = '';
   document.body.style.left = '';
   document.body.style.right = '';
+  document.body.style.width = '';
 
-  window.scrollTo(0, parseInt(scrollY) * -1);
+  window.scrollTo(0, parseInt(scrollY, 10));
 }
 
 if (mobileMenuBtn && mobileMenu) {
